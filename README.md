@@ -1,5 +1,5 @@
 # 🎯 Motivation: The Value of Standardized Templates
-Standardized code templates—like those found in the LeetCode Interview Cheatsheets—are essential tools that accelerate both learning and coding efficiency. These templates are crucial because they:
+Standardized code templates—like those found in the LeetCode Interview [Cheatsheets](https://leetcode.com/explore/interview/card/cheatsheets/720/resources/4723/)—are essential tools that accelerate both learning and coding efficiency. These templates are crucial because they:
 
 ### Reduce Boilerplate:
 They provide the necessary structure, allowing developers to focus their energy entirely on the core algorithmic logic.
