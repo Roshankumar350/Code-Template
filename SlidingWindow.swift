@@ -13,7 +13,7 @@ func printingFixedLengthSubarrays(_ input: [Int], size k: Int) {
     }
 }
 
-func printingFixedLengthSubarrays(_ input: [Int], size k: Int) {
+func summationFixedLengthSubarrays(_ input: [Int], size k: Int) {
     guard k <= input.count else {
         print("Window size exceeds array length")
         return
