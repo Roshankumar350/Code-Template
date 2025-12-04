@@ -35,3 +35,7 @@ func summationFixedLengthSubarrays(_ input: [Int], size k: Int) {
 }
 
 // printingFixedLengthSubarrays((1...20).map {$0}, size: 2)
+
+/* Further Reading:
+ * https://leetcode.com/discuss/post/7392239/master-sliding-window-the-complete-patte-5o49/
+ */
