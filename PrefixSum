@@ -1,0 +1,33 @@
+func prefixSum(_ array: [Int]) -> [Int] {
+    var result: [Int] = []
+    var sum: Int = 0
+    for num in array {
+        sum += num
+        result.append(sum)
+    }
+    return result
+}
+
+let nums = (0...5).map { $0 }
+print("Original Array: \(nums)")
+print("Prefix Sum Array: \(prefixSum(nums))")
+
+//Indexed based
+
+func prefixSumIndexed(_ array: [Int]) -> [Int] {
+    var result = [Int]()
+    result.reserveCapacity(array.count)
+    
+    for (index, _ ) in array.enumerated() {
+       if index == 0 {
+           result.append(array[0])
+           continue
+        }
+        result.append(array[index] + result[index - 1])
+    }
+    return result
+}
+
+
+print("Original Array: \(nums)")
+print("Prefix Sum Array: \(prefixSumIndexed(nums))")
