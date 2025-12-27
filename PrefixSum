@@ -12,6 +12,7 @@ let nums = (0...5).map { $0 }
 print("Original Array: \(nums)")
 print("Prefix Sum Array: \(prefixSum(nums))")
 
+// ------------------------------------------------------------------------------------------------------------------------
 //Indexed based
 
 func prefixSumIndexed(_ array: [Int]) -> [Int] {
@@ -31,3 +32,24 @@ func prefixSumIndexed(_ array: [Int]) -> [Int] {
 
 print("Original Array: \(nums)")
 print("Prefix Sum Array: \(prefixSumIndexed(nums))")
+
+
+// ------------------------------------------------------------------------------------------------------------------------
+// Pointer based prefix sum
+func buildPrefix(input: [Int]) -> [Int] {
+    var expectation = [Int]()
+    
+    var leftIndex = input.startIndex
+    let endIndex = input.endIndex
+    
+    var summation = 0
+    while leftIndex < endIndex {
+        summation += input[leftIndex]
+        expectation.append(summation)
+        leftIndex += 1
+    }
+    
+    return expectation
+}
+
+print(prefixSum(nums))
