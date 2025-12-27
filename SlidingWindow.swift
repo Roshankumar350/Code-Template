@@ -13,6 +13,27 @@ func printingFixedLengthSubarrays(_ input: [Int], size k: Int) {
     }
 }
 
+// Another way of printing window. 
+// This gives more control with pointers.
+func printingFixedLengthSubarrays(input: [Int], k: Int) {
+    var leftIndex = input.startIndex
+    let endIndex = input.endIndex
+    var rightPointer = 0
+    
+    while rightPointer < endIndex {
+        // create a window 
+        if rightPointer < (k - 1) {
+            rightPointer += 1
+            continue  
+        }
+        // Print window
+        print("window is: \(input[leftIndex...rightPointer])")
+        leftIndex += 1
+        rightPointer += 1
+    }
+    
+}
+
 func summationFixedLengthSubarrays(_ input: [Int], size k: Int) {
     guard k <= input.count else {
         print("Window size exceeds array length")
