@@ -35,10 +35,11 @@ class LinkedList {
             print("\(tempNode?.value ?? -1)", terminator: " -> ")
             tempNode = tempNode?.next
         }
+        print("")
     }
   
     // Slow and Fast Pointer
-    func fastAndSlowPointer() {
+    func fastAndSlowPointer() -> Node? {
         var slow = head
         var fast = head
         
@@ -46,8 +47,8 @@ class LinkedList {
             slow = slow?.next
             fast = fast?.next?.next
         }
-        print()
-        printNode(from: slow)
+        
+        return slow
     }
 }
 
