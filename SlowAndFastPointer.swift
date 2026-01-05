@@ -27,6 +27,31 @@ class LinkedList {
             }
         }
     }
+
+        func createCyclicNode(for elements: [Int], cycleAt index: Int) {
+        guard !elements.isEmpty, index >= 0, index < elements.count else { return }
+        
+        var tempNode: Node?
+        var cycleStartNode: Node?
+        
+        for (i, element) in elements.enumerated() {
+            let node = Node(value: element)
+            if i == 0 {
+                head = node
+                tempNode = node
+            } else {
+                tempNode?.next = node
+                tempNode = node
+            }
+            
+            if i == index {
+                cycleStartNode = node
+            }
+        }
+        
+        // Create the cycle
+        tempNode?.next = cycleStartNode
+    }
   
     // Supporting function to print
     func printNode(from node: Node?) {
@@ -50,6 +75,40 @@ class LinkedList {
         
         return slow
     }
+
+        func findCyclicPoint(from List: Node?) -> Node? {
+        
+        var isCyclic = false
+        
+        var slow = head
+        var fast = head
+        
+        
+        while slow?.next != nil, fast?.next?.next != nil {
+            
+            slow = slow?.next
+            fast = fast?.next?.next
+            
+            if slow === fast {
+                isCyclic = true
+                break
+            }
+        }
+        
+        guard isCyclic else {
+            return nil
+        }
+        
+        // reset slow to head
+        slow = head
+        
+        while slow !== fast {
+            slow = slow?.next
+            fast = fast?.next
+        }
+        
+        return slow
+    }
 }
 
 
@@ -62,3 +121,10 @@ linkedList.printNode(from: linkedList.head)
 let slowPointer = linkedList.fastAndSlowPointer()
 // Print half List
 linkedList.printNode(from: slowPointer)
+
+var cycledLinkedList = LinkedList()
+cycledLinkedList.createCyclicNode(for: (1...20).map { $0 }, cycleAt: 5)
+print(cycledLinkedList.hasCycle())
+
+let cyclicPoint = cycledLinkedList.findCyclicPoint(from: cycledLinkedList.head)
+print("cyclicPoint?.value: \(String(describing: cyclicPoint?.value))")
