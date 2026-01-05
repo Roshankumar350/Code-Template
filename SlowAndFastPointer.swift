@@ -10,7 +10,11 @@ class Node {
 
 class LinkedList {
     var head: Node?
-  
+    // [1,2,3,4]
+    //  head(0x12)
+    //  tempNode(0x12) (At the begining but will move ahead with `tempNode = node`)
+    // [ 1 | 0x24 ] -> [ 2 |  0x32 ] ->  [ 3 |  0x46 ]  ->  [ 4 | NULL ]
+    //    0x12           0x24                0x32             0x46
     // Supporting function to create LinkedList
     func createNode(for elements: [Int]) {
         guard !elements.isEmpty else { return }
