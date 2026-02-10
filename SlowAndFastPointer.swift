@@ -80,7 +80,7 @@ class LinkedList {
         return slow
     }
 
-        func findCyclicPoint(from List: Node?) -> Node? {
+    func findCyclicPoint(from List: Node?) -> Node? {
         
         var isCyclic = false
         
@@ -112,6 +112,25 @@ class LinkedList {
         }
         
         return slow
+    }
+
+    func hasCycle() -> Bool {
+        var isCycleDected = false
+        
+        var slow = head
+        var fast = head
+        
+        while slow?.next != nil, fast?.next?.next != nil {
+            slow = slow?.next
+            fast = fast?.next?.next
+            
+            if slow === fast {
+                isCycleDected = true
+                return isCycleDected
+            }
+        }
+        
+        return isCycleDected
     }
 }
 
