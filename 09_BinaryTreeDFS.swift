@@ -42,3 +42,24 @@ func postOrder(_ node: Node?) {
 }
 
 
+// MARK: Iterative
+
+func preOrderIterative(_ node: Node?) {
+    guard let tempNode = node else { return }
+    var stack = [Node]()
+    stack.append(tempNode)
+    
+    while !stack.isEmpty {
+        let poped = stack.removeLast()
+        print(poped.value)
+        
+        if let rightE = poped.right {
+            stack.append(rightE)
+        }
+        
+        if let leftE = poped.left {
+            stack.append(leftE)
+        }
+    }
+}
+
