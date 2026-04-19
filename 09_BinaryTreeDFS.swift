@@ -63,3 +63,30 @@ func preOrderIterative(_ node: Node?) {
     }
 }
 
+
+func iterativePostOrder(_ node: Node?) {
+    guard let node  else { return }
+    var stack1 = [Node]()
+    stack1.append(node)
+    var stack2 = [Node]()
+    
+    while !stack1.isEmpty {
+        let nodeOfStack1 = stack1.removeLast()
+        stack2.append(nodeOfStack1)
+        
+        if let leftNode = nodeOfStack1.left {
+            stack1.append(leftNode)
+        }
+        
+        if let rightNode = nodeOfStack1.right {
+            stack1.append(rightNode)
+        }
+    }
+    
+    while !stack2.isEmpty {
+        let node = stack2.removeLast()
+        print(node.value)
+    }
+}
+
+
