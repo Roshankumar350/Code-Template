@@ -89,4 +89,25 @@ func iterativePostOrder(_ node: Node?) {
     }
 }
 
+func iterativeInOrder(_ root: Node?) {
+    var stack = [Node]()
+    var current = root
+    
+    while current != nil || !stack.isEmpty {
+        // Go left as far as possible
+        while let node = current {
+            stack.append(node)
+            current = node.left
+        }
+        
+        // Pop from stack and process
+        let popped = stack.removeLast()
+        print(popped.value)
+        
+        // Move to right subtree
+        current = popped.right
+    }
+}
+
+
 
